@@ -6,10 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Week1\Week1.csproj" />
+    <ProjectReference Include="..\Week1\Week1.csproj" />
     <ProjectReference Include="..\Week2\Week2.csproj" />
     <ProjectReference Include="..\Week3\Week3.csproj" />
     <ProjectReference Include="..\Week4\Week4.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Input\rocket1Module.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
