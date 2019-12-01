@@ -14,7 +14,9 @@ namespace Week1.Tests
         [InlineData(100756, 33583)]
         public void Given_Module_Mass_Fuel_Should_Be_As_Expected(uint mass, uint expectedFuel)
         {
-            var fuel = RocketFuelSystem.CalculateFuel(mass);
+            var rocketFuelSystem = new RocketFuelSystem();
+
+            var fuel = rocketFuelSystem.CalculateFuel(mass);
 
             fuel.Should().Be(expectedFuel);
         }
@@ -26,7 +28,9 @@ namespace Week1.Tests
         [InlineData(@"Input/Empty.txt", 0)]
         public void Given_Input_File_For_Modules_Sum_Should_Be_As_Expected(string rocketFuelSystemConfig, ulong expectedTotalFuelSum)
         {
-            var rocketFuelSystem = new RocketFuelSystem(rocketFuelSystemConfig);
+            var rocketFuelSystem = new RocketFuelSystem();
+
+            rocketFuelSystem.Load(rocketFuelSystemConfig);
 
             rocketFuelSystem.TotalFuel.Should().Be(expectedTotalFuelSum);
         }
@@ -36,9 +40,11 @@ namespace Week1.Tests
         [InlineData(@"Input/rocketInvalidDecimal.txt")]
         public void Given_Invalid_Input_File_For_Modules_Should_Throw_InvalidRocketConfigurationException(string rocketFuelSystemConfig)
         {
-            Action createRocketFuelSystem = () => new RocketFuelSystem(rocketFuelSystemConfig);
+            var rocketFuelSystem = new RocketFuelSystem();
 
-            createRocketFuelSystem.Should().Throw<InvalidRocketConfigurationException>();
+            Action loadRocketFuelSystem = () => rocketFuelSystem.Load(rocketFuelSystemConfig);
+
+            loadRocketFuelSystem.Should().Throw<InvalidRocketConfigurationException>();
         }
     }
 }

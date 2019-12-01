@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -6,28 +7,35 @@ namespace Week1.Day1
 {
     public class RocketFuelSystem
     {
-        public ulong TotalFuel { get; }
+        public ulong TotalFuel { get; private set; }
 
-        public RocketFuelSystem(string path)
+        /// <summary>
+        /// Loads rocket with fuel based on configuration.
+        /// </summary>
+        /// <param name="path">Rocket fuel configuration file path.</param>
+        public void Load(string path)
         {
-            TotalFuel = CalculateTotalFuel(path);
+            var modules = ParseModules(path);
+            TotalFuel = (ulong)modules.Sum(m => CalculateFuel(m));
         }
 
-        public static uint CalculateFuel(uint mass)
+        /// <summary>
+        /// Calculate amount of fuel needed to lift the specified rocket mass.
+        /// </summary>
+        public virtual uint CalculateFuel(uint mass)
         {
             return (uint)Math.Floor(mass / 3.0f) - 2;
         }
 
-        private ulong CalculateTotalFuel(string path)
+        private IEnumerable<uint> ParseModules(string path)
         {
-            var modules = File.ReadAllLines(path);
-
             try
             {
-                var totalFuel = modules.Select(m => uint.Parse(m))
-                    .Sum(m => CalculateFuel(m));
-                
-                return (ulong)totalFuel;
+                // Has to be a list because it needs to be evaluated here, so we can catch the exception of invalid input.
+                var modules = File.ReadAllLines(path)
+                    .Select(m => uint.Parse(m)).ToList();
+
+                return modules;
             }
             catch(Exception ex)
             {
