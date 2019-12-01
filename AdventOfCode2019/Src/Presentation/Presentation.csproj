@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Week1\Week1.csproj" />
+    <ProjectReference Include="..\Week2\Week2.csproj" />
+    <ProjectReference Include="..\Week3\Week3.csproj" />
+    <ProjectReference Include="..\Week4\Week4.csproj" />
+  </ItemGroup>
+
+</Project>

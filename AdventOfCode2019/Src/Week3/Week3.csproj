@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Day1\" />
+    <Folder Include="Day2\" />
+    <Folder Include="Day3\" />
+    <Folder Include="Day4\" />
+    <Folder Include="Day5\" />
+    <Folder Include="Day6\" />
+    <Folder Include="Day7\" />
+  </ItemGroup>
+
+</Project>
