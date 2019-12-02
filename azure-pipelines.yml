@@ -29,14 +29,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-# Run tests
-- task: DotNetCoreCLI@2
-  inputs:
-    command: test
-    projects: '**/*Tests/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
-
-# Collect test coverage
+# Run tests and collect test coverage
 - task: DotNetCoreCLI@2
   inputs:
     command: test
