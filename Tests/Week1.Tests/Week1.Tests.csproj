@@ -19,22 +19,34 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Input\rocketInvalidDecimal.txt">
+    <None Update="Day1\Input\rocketInvalidDecimal.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Input\rocketInvalid.txt">
+    <None Update="Day1\Input\rocketInvalid.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Input\Empty.txt">
+    <None Update="Day1\Input\Empty.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Input\rocket1Module.txt">
+    <None Update="Day1\Input\rocket1Module.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Input\rocket2Module.txt">
+    <None Update="Day1\Input\rocket2Module.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Input\rocket3Module.txt">
+    <None Update="Day1\Input\rocket3Module.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Day2\Input\EmptyFile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Day2\Input\Notints.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Day2\Input\SingleInt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Day2\Input\TwoInts.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Presentation.Demos;
+using System;
 using Week1.Day1;
 
 namespace Presentation
@@ -7,8 +8,7 @@ namespace Presentation
     {
         static void Main(string[] args)
         {
-            Challenge1.FullDemo();
-            ConsoleView.PromptToExit();
+            Challenge2.FullDemo();
         }
     }
 }

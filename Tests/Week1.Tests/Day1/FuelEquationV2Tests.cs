@@ -1,20 +1,20 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
+using System;
 using Week1.Day1;
 using Xunit;
 
 namespace Week1.Tests
 {
-    public class FuelEquationTests
+    public class FuelEquationV2Tests
     {
         [Theory]
         [InlineData(12, 2)]
         [InlineData(14, 2)]
-        [InlineData(1969, 654)]
-        [InlineData(100756, 33583)]
+        [InlineData(1969, 966)]
+        [InlineData(100756, 50346)]
         public void Given_Module_Mass_Fuel_Should_Be_As_Expected(uint mass, uint expectedFuel)
         {
-            var rocketFuelSystem = new RocketFuelSystem();
+            var rocketFuelSystem = new RocketFuelSystemV2();
 
             var fuel = rocketFuelSystem.CalculateFuel(mass);
 
@@ -22,13 +22,13 @@ namespace Week1.Tests
         }
 
         [Theory]
-        [InlineData(@"Input/rocket1Module.txt", 2)]
-        [InlineData(@"Input/rocket2Module.txt", 67166)]
-        [InlineData(@"Input/rocket3Module.txt", 67168)]
-        [InlineData(@"Input/Empty.txt", 0)]
+        [InlineData(@"Day1/Input/rocket1Module.txt", 2)]
+        [InlineData(@"Day1/Input/rocket2Module.txt", 100692)]
+        [InlineData(@"Day1/Input/rocket3Module.txt", 100694)]
+        [InlineData(@"Day1/Input/Empty.txt", 0)]
         public void Given_Input_File_For_Modules_Sum_Should_Be_As_Expected(string rocketFuelSystemConfig, ulong expectedTotalFuelSum)
         {
-            var rocketFuelSystem = new RocketFuelSystem();
+            var rocketFuelSystem = new RocketFuelSystemV2();
 
             rocketFuelSystem.Load(rocketFuelSystemConfig);
 
@@ -36,11 +36,11 @@ namespace Week1.Tests
         }
 
         [Theory]
-        [InlineData(@"Input/rocketInvalid.txt")]
-        [InlineData(@"Input/rocketInvalidDecimal.txt")]
+        [InlineData(@"Day1/Input/rocketInvalid.txt")]
+        [InlineData(@"Day1/Input/rocketInvalidDecimal.txt")]
         public void Given_Invalid_Input_File_For_Modules_Should_Throw_InvalidRocketConfigurationException(string rocketFuelSystemConfig)
         {
-            var rocketFuelSystem = new RocketFuelSystem();
+            var rocketFuelSystem = new RocketFuelSystemV2();
 
             Action loadRocketFuelSystem = () => rocketFuelSystem.Load(rocketFuelSystemConfig);
 

@@ -13,7 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Input\rocket1Module.txt">
+    <None Update="Input\C1.rocket1Module.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\C2.GravitonIntCodeProgram.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

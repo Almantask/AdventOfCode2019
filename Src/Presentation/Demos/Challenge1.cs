@@ -22,7 +22,7 @@ namespace Week1.Day1
         {
             ConsoleView.Print("Demo 1:");
             var rocket = new RocketFuelSystem();
-            rocket.Load(@"Input/rocket1Module.txt");
+            rocket.Load(@"Input/C1.rocket1Module.txt");
 
             ConsoleView.Print(rocket.TotalFuel.ToString());
         }
@@ -31,7 +31,7 @@ namespace Week1.Day1
         {
             ConsoleView.Print("Demo 2:");
             var rocket = new RocketFuelSystemV2();
-            rocket.Load(@"Input/rocket1Module.txt");
+            rocket.Load(@"Input/C1.rocket1Module.txt");
 
             ConsoleView.Print(rocket.TotalFuel.ToString());
         }
