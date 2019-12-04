@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Week1.Day2;
 using Xunit;
 

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Week1.Tests.Day3.Input
 {
@@ -14,6 +12,18 @@ namespace Week1.Tests.Day3.Input
                 new[]
                 {
                     "R1","U1","L1"
+                },
+                new[]
+                {
+                    "U1"
+                },
+                1
+            };
+            yield return new object[]
+            {
+                new[]
+                {
+                    "R1","U1","L2"
                 },
                 new[]
                 {

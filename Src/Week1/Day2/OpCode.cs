@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Week1.Day2
+﻿namespace Week1.Day2
 {
     /// <summary>
     /// Intcode literals.

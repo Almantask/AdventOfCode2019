@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Week4
+﻿namespace Week4
 {
     public class Class1
     {

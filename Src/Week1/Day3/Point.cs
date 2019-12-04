@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-
-namespace Week1.Day3
+﻿namespace Week1.Day3
 {
     /// <summary>
     /// Point in 2D space.

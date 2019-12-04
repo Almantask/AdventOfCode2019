@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using Week1.Day3.Exceptions;
 using static Week1.Day3.DirectionLiterals;
 
@@ -10,14 +7,14 @@ namespace Week1.Day3
 {
     public struct Wire
     {
-        public readonly IReadOnlyList<Point> Path;
+        public readonly IList<Point> Path;
 
         public Wire(string[] path)
         {
             Path = Parse(path);
         }
 
-        private static IReadOnlyList<Point> Parse(string[] literals)
+        private static IList<Point> Parse(string[] literals)
         {
             var path = new List<Point>();
 
@@ -25,8 +22,9 @@ namespace Week1.Day3
             int x = 0;
             int y = 0;
 
-            foreach (var literal in literals)
+            for (var index = 0; index < literals.Length; index++)
             {
+                var literal = literals[index];
                 var directionPoint = Parse(literal);
 
                 // Let's keep track where we are relatively.

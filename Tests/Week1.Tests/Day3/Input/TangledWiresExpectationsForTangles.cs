@@ -10,7 +10,7 @@ public class TangledWiresExpectationsForTangles : IEnumerable<object[]>
         {
                 new[]
                 {
-                    "R1","U1","L1"
+                    "R1","U1","L2"
                 },
                 new[]
                 {

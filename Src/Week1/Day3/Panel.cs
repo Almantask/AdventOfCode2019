@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
 using Week1.Tests.Day3;
 
 namespace Week1.Day3
 {
     public class Panel
     {
+        public static Point OriginPoint { get; } = new Point(0,0);
+
         private Wire _wire1;
         private Wire _wire2;
 

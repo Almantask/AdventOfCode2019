@@ -1,6 +1,4 @@
 ﻿using Presentation.Demos;
-using System;
-using Week1.Day1;
 
 namespace Presentation
 {

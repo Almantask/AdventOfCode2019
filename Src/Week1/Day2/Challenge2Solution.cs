@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Week1.Day2
+﻿namespace Week1.Day2
 {
     public struct Challenge2Solution
     {
