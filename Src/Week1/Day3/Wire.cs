@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Week1.Day3.Exceptions;
+using Week1.Tests.Day3;
 using static Week1.Day3.DirectionLiterals;
 
 namespace Week1.Day3
@@ -14,9 +15,43 @@ namespace Week1.Day3
             Path = Parse(path);
         }
 
+        public int GetLength()
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// Returns plotted point in between wire corners.
+        /// </summary>
+        /// <param name="literals"></param>
+        /// <returns></returns>
         private static IList<Point> Parse(string[] literals)
         {
-            var path = new List<Point>();
+            var plottedPoints = new List<Point>();
+
+            var pathCorners = GetCorners(literals);
+            if (pathCorners.Count == 1) return pathCorners;
+
+            // Plot from origin (or include origin in the wire setup paths.
+            var lineFromOrigin = new Line(Panel.OriginPoint, pathCorners[0]);
+            plottedPoints.AddRange(lineFromOrigin.Plot());
+
+            for (var i = 0; i < pathCorners.Count -1; i++)
+            {
+                var line = new Line(pathCorners[i], pathCorners[i+1]);
+                plottedPoints.AddRange(line.Plot());
+            }
+
+            plottedPoints.Remove(Panel.OriginPoint);
+
+            return plottedPoints.Distinct(
+                new PointEqualityComparer())
+                .ToList();
+        }
+
+        private static List<Point> GetCorners(string[] literals)
+        {
+            var pathCorners = new List<Point>();
 
             // Origin point- weherever we start is 0,0.
             int x = 0;
@@ -33,10 +68,10 @@ namespace Week1.Day3
 
                 // Get relative point to origin
                 var actualPoint = new Point(x, y);
-                path.Add(actualPoint);
+                pathCorners.Add(actualPoint);
             }
 
-            return path;
+            return pathCorners;
         }
 
         private static Point Parse(string literal)

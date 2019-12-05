@@ -25,6 +25,15 @@ namespace Week1.Tests.Day3
             areEqual.Should().Be(false);
         }
 
+        [Theory]
+        [MemberData(nameof(MixedPointsInput))]
+        public void Manahatan_Distance_On_Point_As_Expected(Point point, int expectedDistance)
+        {
+            point.ManhatanDistance.Should().Be(expectedDistance);
+        }
+
+
+
         public static IEnumerable<object[]> EqualsPoints =>
             new List<object[]>()
             {
@@ -42,6 +51,15 @@ namespace Week1.Tests.Day3
                 new object[]{new Point(1,0), new Point(0,0)},
                 new object[]{new Point(int.MaxValue, 0), new Point(int.MaxValue, int.MaxValue)}
             };
+
+        public static IEnumerable<object[]> MixedPointsInput =>
+            new List<object[]>()
+            {
+                new object[]{new Point(-1,1), 2},
+                new object[]{new Point(0,0), 0},
+                new object[]{new Point(1, 1), 2},
+            };
+
     }
 
 }

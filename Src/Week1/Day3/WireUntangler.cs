@@ -14,7 +14,7 @@ namespace Week1.Tests.Day3
         {
             var closest = FindClosestTangle(wire1, wire2);
 
-            return closest.X + closest.Y;
+            return closest.ManhatanDistance;
         }
 
         /// <summary>
@@ -23,9 +23,10 @@ namespace Week1.Tests.Day3
         /// </summary>
         public Point FindClosestTangle(Wire wire1, Wire wire2)
         {
-            var tangles = FindTangles(wire1, wire2);
+            var tangles = FindTangles(wire1, wire2)
+                .OrderBy(t => t.ManhatanDistance);
 
-            return tangles.Min();
+            return tangles.FirstOrDefault();
         }
 
         /// <summary>
@@ -36,38 +37,8 @@ namespace Week1.Tests.Day3
         /// <returns></returns>
         public IEnumerable<Point> FindTangles(Wire wire1, Wire wire2)
         {
-            var tangles = new List<Point>();
-
-            var lines1 = BuildLines(wire1);
-            var lines2 = BuildLines(wire2);
-
-            foreach (var line1 in lines1)
-            {
-                foreach (var line2 in lines2)
-                {
-                    var intersection = line1.Intersect(line2);
-                    if (intersection == null) continue;
-                    if (intersection == Panel.OriginPoint) continue;
-
-                    tangles.Add(intersection.Value);
-                }
-            }
-
-            return tangles.Distinct(new PointEqualityComparer());
-        }
-
-        private IList<Line> BuildLines(Wire wire)
-        {
-            var lines = new List<Line>();
-
-            lines.Add(new Line(Panel.OriginPoint, wire.Path[0]));
-
-            for (var index = 0; index < wire.Path.Count - 1; index++)
-            {
-                lines.Add(new Line(wire.Path[index], wire.Path[index + 1]));
-            }
-
-            return lines;
+            var tangles = wire1.Path.Intersect(wire2.Path, new PointEqualityComparer());
+            return tangles;
         }
     }
 }

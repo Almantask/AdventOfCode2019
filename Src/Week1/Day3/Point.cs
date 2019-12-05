@@ -1,4 +1,7 @@
-﻿namespace Week1.Day3
+﻿using System;
+using System.Collections.Generic;
+
+namespace Week1.Day3
 {
     /// <summary>
     /// Point in 2D space.
@@ -13,6 +16,8 @@
             X = x;
             Y = y;
         }
+
+        public int ManhatanDistance => Math.Abs(X) + Math.Abs(Y); 
 
         public static bool operator== (Point p1, Point p2)
         {

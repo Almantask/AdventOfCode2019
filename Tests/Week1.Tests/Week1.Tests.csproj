@@ -55,6 +55,9 @@
     <None Update="Day3\Input\TangledWiresDist135.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Day3\Input\TangledWiresDist6.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Day3\Input\TangledWiresDist159.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

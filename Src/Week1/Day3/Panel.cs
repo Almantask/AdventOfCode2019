@@ -17,7 +17,7 @@ namespace Week1.Day3
         /// <summary>
         /// Calculates closest distance to origin. Use Manhatan algorithm.
         /// </summary>
-        public long CalculateClosestDistance() => _wireUntangler.CalculateShortestDistanceToOrigin(_wire1, _wire2);
+        public long CalculateClosestTangleDistance() => _wireUntangler.CalculateShortestDistanceToOrigin(_wire1, _wire2);
 
         public Panel(string panelMapPath, WireUntangler untangler)
         {

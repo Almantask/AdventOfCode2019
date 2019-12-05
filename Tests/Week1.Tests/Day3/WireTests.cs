@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Week1.Day3;
+using Week1.Tests.Day3.Input;
 using Xunit;
 
 namespace Week1.Tests.Day3
@@ -14,5 +15,17 @@ namespace Week1.Tests.Day3
 
             wire.Path.Should().BeEquivalentTo(points);
         }
+
+        [Theory]
+        [ClassData(typeof(WireWithLengthInput))]
+        public void Valid_Wire_Returns_Expected_Distance(string[] path, int expectedLength)
+        {
+            var wire = new Wire(path);
+
+            var length = wire.GetLength();
+
+            length.Should().Be(expectedLength);
+        }
+
     }
 }

@@ -21,19 +21,19 @@ namespace Week1.Tests.Day3
                 ?Orientation.Horizontal : Orientation.Vertical;
         }
 
-        public IEnumerable<Point> Intersect(Line line2)
+        public Point? Intersect(Line line2)
         {
 
-            if (this.orientation == line2.orientation) return new List<Point>();
+            if (this.orientation == line2.orientation) return null;
 
 
-            var newIntersections = Intersect(this, line2);
-            if (intersections.Any()) return intersections;
+            var intersection = Intersect(this, line2);
+            if (intersection != null) return intersection;
 
             return Intersect(line2, this);
         }
 
-        public IEnumerable<Point> Intersect(Line line1, Line line2)
+        public Point? Intersect(Line line1, Line line2)
         {
             int x = 0;
             int y = 0; 
@@ -86,6 +86,75 @@ namespace Week1.Tests.Day3
             }
 
             return new Point(x, y);
+        }
+
+        /// <summary>
+        /// Gets all points in between two points.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Point> Plot()
+        {
+            var points = new List<Point>() {Start};
+
+            if (orientation == Orientation.Horizontal)
+            {
+                // plot X x-------x
+                // y is constant;
+                int y = Start.Y;
+
+                int startX;
+                int endX;
+                if (Start.X > End.X)
+                {
+                    startX = End.X;
+                    endX = Start.X;
+                }
+                else
+                {
+                    startX = Start.X;
+                    endX = End.X;
+                }
+
+                for (var x = startX + 1; x < endX; x++)
+                {
+                    var point = new Point(x, y);
+                    points.Add(point);
+                }
+            }
+            else if (orientation == Orientation.Vertical)
+            {
+                // plot Y 
+                //x
+                //|
+                //|
+                //x
+                
+                // X is constant
+                int x = Start.X;
+
+                int startY;
+                int endY;
+                if(Start.Y > End.Y)
+                {
+                    startY = End.Y;
+                    endY = Start.Y;
+                }
+                else
+                {
+                    startY = Start.Y;
+                    endY = End.Y;
+                }
+
+                for (var y = startY + 1; y < endY; y++)
+                {
+                    var point = new Point(x, y);
+                    points.Add(point);
+                }
+            }
+
+            points.Add(End);
+
+            return points;
         }
     }
 }

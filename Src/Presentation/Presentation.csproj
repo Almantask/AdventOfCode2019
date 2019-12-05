@@ -19,6 +19,9 @@
     <None Update="Input\C2.GravitonIntCodeProgram.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Input\C3.TangledWires.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

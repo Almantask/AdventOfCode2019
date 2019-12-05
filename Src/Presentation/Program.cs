@@ -6,7 +6,7 @@ namespace Presentation
     {
         static void Main(string[] args)
         {
-            Challenge2.FullDemo();
+            Challenge3.FullDemo();
         }
     }
 }

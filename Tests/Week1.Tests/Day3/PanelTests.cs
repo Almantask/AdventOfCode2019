@@ -10,11 +10,12 @@ namespace Week1.Tests.Day3
         [InlineData(@"Day3/Input/TangledWiresDist1.txt", 1)]
         [InlineData(@"Day3/Input/TangledWiresDist135.txt", 135)]
         [InlineData(@"Day3/Input/TangledWiresDist159.txt", 159)]
+        [InlineData(@"Day3/Input/TangledWiresDist6.txt", 6)]
         public void Panel_Initialized_From_File_With_2_Tangled_Wires_Returns_Shortest_Tangle_Distance(string pathToPanelConfig, int expectedDistance)
         {
             var panel = new Panel(pathToPanelConfig, new WireUntangler());
 
-            var distance = panel.CalculateClosestDistance();
+            var distance = panel.CalculateClosestTangleDistance();
 
             distance.Should().Be(expectedDistance);
         }
