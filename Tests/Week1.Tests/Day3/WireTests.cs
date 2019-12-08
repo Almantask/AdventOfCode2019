@@ -18,11 +18,22 @@ namespace Week1.Tests.Day3
 
         [Theory]
         [ClassData(typeof(WireWithLengthInput))]
-        public void Valid_Wire_Returns_Expected_Distance(string[] path, int expectedLength)
+        public void Valid_Wire_Returns_Expected_Length_Of_Wire(string[] path, int expectedLength)
         {
             var wire = new Wire(path);
 
-            var length = wire.GetLength();
+            var length = wire.CalculateLength();
+
+            length.Should().Be(expectedLength);
+        }
+
+        [Theory]
+        [ClassData(typeof(WireWithPointOfWireInput))]
+        public void Valid_Wire_Lenght_To_Point_Return_Expected_Length(string[] path, Point point, int expectedLength)
+        {
+            var wire = new Wire(path);
+
+            var length = wire.CalculateLengthToPoint(point);
 
             length.Should().Be(expectedLength);
         }

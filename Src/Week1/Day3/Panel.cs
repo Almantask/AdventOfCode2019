@@ -35,5 +35,30 @@ namespace Week1.Day3
             _wire1 = wires[0];
             _wire2 = wires[1];
         }
+
+        /// <summary>
+        /// Calculates and find the sum of intersection of both wires,
+        /// which results in the shortest signal path to travel for both.
+        /// </summary>
+        public int CalculateClosestSignalIntersectionSum()
+        {
+            var tangles = _wireUntangler.FindTangles(_wire1, _wire2);
+            var closestSignalDistance = int.MaxValue;
+
+            foreach (var tangle in tangles)
+            {
+                var signalStep1 = _wire1.CalculateLengthToPoint(tangle);
+                var signalStep2 = _wire2.CalculateLengthToPoint(tangle);
+
+                var totalSignalSteps = signalStep1 + signalStep2;
+
+                if(totalSignalSteps < closestSignalDistance)
+                {
+                    closestSignalDistance = totalSignalSteps;
+                }
+            }
+
+            return closestSignalDistance;
+        }
     }
 }

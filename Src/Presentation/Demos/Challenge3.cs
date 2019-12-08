@@ -1,12 +1,14 @@
 ﻿using Week1.Day2;
+using Week1.Day3;
+using Week1.Tests.Day3;
 
 namespace Presentation.Demos
 {
-    public static class Challenge2
+    public static class Challenge3
     {
-        static Challenge2()
+        static Challenge3()
         {
-            ConsoleView.Print("Challenge 2...");
+            ConsoleView.Print("Challenge 3...");
         }
 
         public static void FullDemo()
@@ -18,24 +20,21 @@ namespace Presentation.Demos
         public static void Demo1()
         {
             ConsoleView.Print("Demo 1:");
-            var program = new IntCodeProgram("Input/C3.GravitonIntCodeProgram.txt");
-            program.ResetTo1202Alaram(2, 12);
-            
-            var intCodeCompiler = new IntCodeCompiler();
-            intCodeCompiler.Compile(program);
-            
-            ConsoleView.Print($"1202 program alarm state is:{program.AlarmState}");
+            var panel = new Panel("Input/C3.TangledWires.txt", new WireUntangler());
+
+            var closestTangleDistance = panel.CalculateClosestTangleDistance();
+
+            ConsoleView.Print($"Closest tangle wire distance is: {closestTangleDistance}");
         }
 
         public static void Demo2()
         {
             ConsoleView.Print("Demo 2:");
-            var program = new IntCodeProgram("Input/C2.GravitonIntCodeProgram.txt");
+            var panel = new Panel("Input/C3.TangledWires.txt", new WireUntangler());
 
-            var intCodeCompiler = new VerbAndNounIntCodeCompiler(19690720, 0, 99);
-            var result = intCodeCompiler.CompileSolution(program);
+            var closestTangleDistance = panel.CalculateClosestSignalIntersectionSum();
 
-            ConsoleView.Print($"{result}");
+            ConsoleView.Print($"Closest signal intersection sum: {closestTangleDistance}");
         }
     }
 }

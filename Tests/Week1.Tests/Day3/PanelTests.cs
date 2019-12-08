@@ -19,5 +19,19 @@ namespace Week1.Tests.Day3
 
             distance.Should().Be(expectedDistance);
         }
+
+        [Theory]
+        [InlineData(@"Day3/Input/TangledWiresDist1.txt", 4)]
+        [InlineData(@"Day3/Input/TangledWiresDist6.txt", 30)]
+        [InlineData(@"Day3/Input/TangledWiresDist135.txt", 410)]
+        [InlineData(@"Day3/Input/TangledWiresDist159.txt", 610)]
+        public void Panel_With_Valid_Wires_Calculate_Shortest_Signal_Sum_Returns_Expected_Value(string pathToPanelConfig, int expectedDistance)
+        {
+            var panel = new Panel(pathToPanelConfig, new WireUntangler());
+
+            var distance = panel.CalculateClosestSignalIntersectionSum();
+
+            distance.Should().Be(expectedDistance);
+        }
     }
 }

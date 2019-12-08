@@ -98,56 +98,25 @@ namespace Week1.Tests.Day3
 
             if (orientation == Orientation.Horizontal)
             {
-                // plot X x-------x
-                // y is constant;
                 int y = Start.Y;
+                var multiplier = (Start.X > End.X) ? -1 : 1;
+                var count = Math.Abs(Start.X - End.X);
 
-                int startX;
-                int endX;
-                if (Start.X > End.X)
+                for (var x = 1; x < count; x++)
                 {
-                    startX = End.X;
-                    endX = Start.X;
-                }
-                else
-                {
-                    startX = Start.X;
-                    endX = End.X;
-                }
-
-                for (var x = startX + 1; x < endX; x++)
-                {
-                    var point = new Point(x, y);
+                    var point = new Point(Start.X + x * multiplier, y);
                     points.Add(point);
                 }
             }
             else if (orientation == Orientation.Vertical)
             {
-                // plot Y 
-                //x
-                //|
-                //|
-                //x
-                
-                // X is constant
                 int x = Start.X;
+                var multiplier = (Start.Y > End.Y) ? -1 : 1;
+                var count = Math.Abs(Start.Y - End.Y);
 
-                int startY;
-                int endY;
-                if(Start.Y > End.Y)
+                for (var y = 1; y < count; y++)
                 {
-                    startY = End.Y;
-                    endY = Start.Y;
-                }
-                else
-                {
-                    startY = Start.Y;
-                    endY = End.Y;
-                }
-
-                for (var y = startY + 1; y < endY; y++)
-                {
-                    var point = new Point(x, y);
+                    var point = new Point(x, Start.Y + y * multiplier);
                     points.Add(point);
                 }
             }

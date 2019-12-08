@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Week1.Day3.Exceptions;
 using Week1.Tests.Day3;
@@ -15,9 +16,19 @@ namespace Week1.Day3
             Path = Parse(path);
         }
 
-        public int GetLength()
+        public int CalculateLength() => CalculateLengthToPoint(Path.Last());
+
+        public int CalculateLengthToPoint(Point tanglePoint)
         {
-            return 0;
+            var distance = 0;
+
+            foreach (var point in Path)
+            {
+                distance++;
+                if (point == tanglePoint) return distance;
+            }
+
+            throw new PointNotBelongingToWireException(tanglePoint);
         }
 
         /// <summary>
@@ -38,15 +49,15 @@ namespace Week1.Day3
 
             for (var i = 0; i < pathCorners.Count -1; i++)
             {
+                plottedPoints.Remove(plottedPoints.Last());
+
                 var line = new Line(pathCorners[i], pathCorners[i+1]);
                 plottedPoints.AddRange(line.Plot());
             }
 
             plottedPoints.Remove(Panel.OriginPoint);
 
-            return plottedPoints.Distinct(
-                new PointEqualityComparer())
-                .ToList();
+            return plottedPoints;
         }
 
         private static List<Point> GetCorners(string[] literals)
