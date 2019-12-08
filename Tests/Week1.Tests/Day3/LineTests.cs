@@ -9,15 +9,6 @@ namespace Week1.Tests.Day3
     public class LineTests
     {
         [Theory]
-        [ClassData(typeof(PairsOfLinesWithExpectedIntersection))]
-        public void Lines_Searching_For_Intersection_Should_Return_Expected_Point(Line line1, Line line2, Point? expectedCrossingPoint)
-        {
-            var point = line1.Intersect(line2);
-
-            point.Should().BeEquivalentTo(expectedCrossingPoint);
-        }
-
-        [Theory]
         [MemberData(nameof(PointsPlotInput))]
         public void Plot_In_Between_Two_Points_Should_Include_Both_Points_And_More(Point point1, Point point2, IEnumerable<Point> expectedPlot)
         {
