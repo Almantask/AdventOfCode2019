@@ -75,6 +75,20 @@ public class SingleWireLiteralsExpectation : IEnumerable<object[]>
                 new Point(0, 1), new Point(0, 0)  
             }
         };
+        yield return new object[]
+        {
+            new[]
+            {
+                "R2", "U1", "L1", "D2"
+            },
+            new[]
+            {
+                new Point(1, 0), new Point(2, 0),
+                new Point(2, 1),
+                new Point(1, 1),
+                new Point(1, 0), new Point(1, -1)
+            }
+        };
     }
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
